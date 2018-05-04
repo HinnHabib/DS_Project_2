@@ -10,12 +10,9 @@ import java.util.List;
 public class Product {
 
     int id;
-
     double price;
     String name;
-
     private Date added;
-
     private double sale;
     private ProductCategory category;
     private String image;
@@ -30,6 +27,11 @@ public class Product {
     }
 
     public Product() {
+    }
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
     }
 
 
@@ -87,5 +89,13 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "price=" + price +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

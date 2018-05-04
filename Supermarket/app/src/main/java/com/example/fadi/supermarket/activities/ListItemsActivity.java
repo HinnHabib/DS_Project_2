@@ -2,17 +2,19 @@ package com.example.fadi.supermarket.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.example.fadi.supermarket.R;
+import com.example.fadi.supermarket.model.Product;
+import com.example.fadi.supermarket.utils.AsyncResponse;
+import com.example.fadi.supermarket.utils.AsyncTaskRunner;
+import com.example.fadi.supermarket.utils.Constants;
+import com.example.fadi.supermarket.utils.ProductsJsonParser;
 
-public class ListItemsActivity extends AppCompatActivity {
+import java.util.List;
+
+public class ListItemsActivity extends AppCompatActivity implements AsyncResponse {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +24,13 @@ public class ListItemsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String type = intent.getStringExtra("type");
+        AsyncTaskRunner asyncTaskRunner = new AsyncTaskRunner(this);
 
         switch(type){
 
             case "meat":
-                System.out.println("meat");
+                asyncTaskRunner.execute(Constants.GET_MEAT_PRODUCTS_URL);
+
                 break;
             case "bread":
                 System.out.println("bread");
@@ -37,9 +41,11 @@ public class ListItemsActivity extends AppCompatActivity {
             case "food":
                 System.out.println("food");
                 break;
-
         }
-
     }
 
+    public void processData(String jsonString) {
+        List<Product> products = ProductsJsonParser.getObjectFromJson(jsonString);
+
+    }
 }

@@ -5,9 +5,10 @@ package com.example.fadi.supermarket.utils;
  */
 
 import com.example.fadi.supermarket.model.User;
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class UserJsonParser {
@@ -16,13 +17,13 @@ public class UserJsonParser {
         User user = new User();
         try {
             JSONArray jsonArray = new JSONArray(json);
-                JSONObject jsonObject = new JSONObject();
-                jsonObject= (JSONObject) jsonArray.get(0);
-                user.setName(jsonObject.getString("name"));
-                user.setEmail(jsonObject.getString("email"));
+            JSONObject jsonObject = new JSONObject();
+            jsonObject = (JSONObject) jsonArray.get(0);
+            user.setName(jsonObject.getString("name"));
+            user.setEmail(jsonObject.getString("email"));
 
-        } catch (JSONException e)
-        { e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
             return null;
         }
         return user;

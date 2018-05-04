@@ -11,7 +11,7 @@ public class Coupon {
     String description;
 
 
-    public Coupon(int id,String name, String description) {
+    public Coupon(int id, String name, String description) {
         this.name = name;
         this.description = description;
         this.id = id;

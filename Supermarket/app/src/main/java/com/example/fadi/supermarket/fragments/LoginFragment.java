@@ -17,13 +17,12 @@ import com.example.fadi.supermarket.activities.HomeActivity;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends Fragment  {
+public class LoginFragment extends Fragment {
 
 
     public LoginFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -41,7 +40,7 @@ public class LoginFragment extends Fragment  {
                 String name = nameET.getText().toString();
                 String password = passwordET.getText().toString();
 
-                Intent homeIntent = new Intent(getActivity(),HomeActivity.class);
+                Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
                 startActivity(homeIntent);
 
             }
@@ -50,7 +49,6 @@ public class LoginFragment extends Fragment  {
         return myView;
         // Inflate the layout for this fragment
     }
-
 
 
 }
