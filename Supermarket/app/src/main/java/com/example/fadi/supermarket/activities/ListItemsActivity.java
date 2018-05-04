@@ -10,7 +10,7 @@ import com.example.fadi.supermarket.model.Product;
 import com.example.fadi.supermarket.utils.AsyncResponse;
 import com.example.fadi.supermarket.utils.AsyncTaskRunner;
 import com.example.fadi.supermarket.utils.Constants;
-import com.example.fadi.supermarket.utils.ProductsJsonParser;
+import com.example.fadi.supermarket.utils.JsonParser;
 
 import java.util.List;
 
@@ -45,7 +45,6 @@ public class ListItemsActivity extends AppCompatActivity implements AsyncRespons
     }
 
     public void processData(String jsonString) {
-        List<Product> products = ProductsJsonParser.getObjectFromJson(jsonString);
-
+        List<Product> products = JsonParser.parseProductsJson(jsonString);
     }
 }

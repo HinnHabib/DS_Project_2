@@ -9,9 +9,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsJsonParser {
+public class JsonParser {
 
-    public static List<Product> getObjectFromJson(String json) {
+    public static List<Product> parseProductsJson(String json) {
         List<Product> products = new ArrayList<>();
         try {
 

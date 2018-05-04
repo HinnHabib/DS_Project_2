@@ -1,15 +1,9 @@
 package com.example.fadi.supermarket.utils;
 
-import android.util.Log;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-/**
- * Created by Mohammad on 7/30/2017.
- */
 
 public class HttpManager {
 
