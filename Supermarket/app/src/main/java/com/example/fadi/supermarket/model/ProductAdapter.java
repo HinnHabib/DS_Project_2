@@ -37,7 +37,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         Product product = productList.get(position);
 
         ImageView imageView = (ImageView) listItem.findViewById(R.id.imageView_image);
-        imageView.setImageResource(R.drawable.bread);
+        imageView.setImageResource(R.drawable.no_image);
 
         TextView nameTextView = (TextView) listItem.findViewById(R.id.textView_name);
         nameTextView.setText(product.getName());
