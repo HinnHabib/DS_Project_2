@@ -16,6 +16,7 @@
         android:layout_alignStart="@+id/linearLayout1"
         android:layout_below="@+id/bread"
         android:layout_marginTop="0dp"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/rawmeatproteinfamily" />
 
     <ImageView
@@ -26,6 +27,7 @@
         android:layout_alignStart="@+id/linearLayout1"
         android:layout_below="@+id/linearLayout1"
         android:layout_marginTop="0dp"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/bread" />
 
     <ImageView
@@ -36,6 +38,7 @@
         android:layout_alignStart="@+id/linearLayout1"
         android:layout_below="@+id/nonFood"
         android:layout_marginTop="0dp"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/foodstuff" />
 
     <ImageView
@@ -45,6 +48,7 @@
         android:layout_alignLeft="@+id/linearLayout2"
         android:layout_alignStart="@+id/linearLayout2"
         android:layout_marginTop="0dp"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/nonfood" />
 
 </LinearLayout>

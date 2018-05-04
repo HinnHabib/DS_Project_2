@@ -11,8 +11,8 @@ import java.util.List;
 
 public class JsonParser {
 
-    public static List<Product> parseProductsJson(String json) {
-        List<Product> products = new ArrayList<>();
+    public static ArrayList<Product> parseProductsJson(String json) {
+        ArrayList<Product> products = new ArrayList<>();
         try {
 
             JSONObject jsonObject = new JSONObject(json);
