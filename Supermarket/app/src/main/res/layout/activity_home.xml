@@ -76,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="128dp"
             android:layout_weight="1"
-            android:background="@android:color/white"
+            android:background="@drawable/no_image"
 
             android:text="Coupons" />
 
@@ -100,16 +100,16 @@
 
         <ImageView
             android:id="@+id/catalog"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="128dp"
             android:layout_weight="1"
-            android:background="@android:color/white"
+            android:background="@drawable/no_image"
             android:text="Catalog" />
 
         <ImageView
             android:id="@+id/sale"
             android:layout_width="wrap_content"
-            android:layout_height="128dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/white"
             android:text="Sale" />
