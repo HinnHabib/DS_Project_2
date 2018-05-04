@@ -1,10 +1,12 @@
-package com.example.fadi.supermarket;
+package com.example.fadi.supermarket.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.fadi.supermarket.R;
 
 public class CatalogActivity extends AppCompatActivity {
 
@@ -22,7 +24,7 @@ public class CatalogActivity extends AppCompatActivity {
         meatFish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListItems.class);
+                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
                 intent.putExtra("type" , "meat");
                 startActivity(intent);
             }
@@ -31,7 +33,7 @@ public class CatalogActivity extends AppCompatActivity {
         bread.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListItems.class);
+                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
                 intent.putExtra("type" , "bread");
                 startActivity(intent);
 
@@ -41,7 +43,7 @@ public class CatalogActivity extends AppCompatActivity {
         nonFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListItems.class);
+                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
                 intent.putExtra("type" , "nonFood");
                 startActivity(intent);
 
@@ -50,7 +52,7 @@ public class CatalogActivity extends AppCompatActivity {
         food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListItems.class);
+                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
                 intent.putExtra("type" , "food");
                 startActivity(intent);
             }

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.fadi.supermarket.RegisterFragment">
+    tools:context="com.example.fadi.supermarket.fragments.RegisterFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -17,26 +17,30 @@
             android:id="@+id/nameRegister"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:selectAllOnFocus="false"
-            android:text="Name" />
+            android:hint="Name"
+            android:selectAllOnFocus="false" />
 
         <EditText
             android:id="@+id/emailRegister"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Email" />
+            android:hint="Email"
+             />
 
         <EditText
             android:id="@+id/passwordRegister"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Password" />
+            android:hint="Password"
+             />
 
         <EditText
             android:id="@+id/passwordCRegister"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Confirm Password" />
+            android:hint="Confirm Password"
+
+            />
 
         <CheckBox
             android:id="@+id/rememberRegister"

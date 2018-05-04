@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket;
+package com.example.fadi.supermarket.fragments;
 
 
 import android.app.Fragment;
@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.fadi.supermarket.R;
+import com.example.fadi.supermarket.activities.HomeActivity;
 
 
 /**
@@ -37,8 +40,10 @@ public class LoginFragment extends Fragment  {
             public void onClick(View view) {
                 String name = nameET.getText().toString();
                 String password = passwordET.getText().toString();
+
                 Intent homeIntent = new Intent(getActivity(),HomeActivity.class);
                 startActivity(homeIntent);
+
             }
 
         });

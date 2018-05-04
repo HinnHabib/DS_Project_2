@@ -1,11 +1,12 @@
-package com.example.fadi.supermarket;
+package com.example.fadi.supermarket.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
+
+import com.example.fadi.supermarket.R;
 
 public class HomeActivity extends AppCompatActivity {
 

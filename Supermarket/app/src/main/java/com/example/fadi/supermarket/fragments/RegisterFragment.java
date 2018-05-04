@@ -1,8 +1,9 @@
-package com.example.fadi.supermarket;
+package com.example.fadi.supermarket.fragments;
 
 
 import android.app.Fragment;
-import android.content.Intent;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -10,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.fadi.supermarket.R;
+import com.example.fadi.supermarket.model.User;
 
 
 /**
@@ -41,9 +45,20 @@ public class RegisterFragment extends Fragment {
                 String password = passwordET.getText().toString();
                 String email = emailET.getText().toString();
                 String passwordC = passwordCET.getText().toString();
+                if(passwordC.equals(password)){
+                    User userRegister = new User(name, password, email);
+                    LoginFragment loginFragment = new LoginFragment();
+                    FragmentManager fragmentManager2 = getFragmentManager();
+                    FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
+                    fragmentTransaction2.remove(fragmentManager2.findFragmentByTag("registerFragment"));
+                    fragmentTransaction2.add(R.id.linearLayout2, loginFragment, "loginFragment");
+                    fragmentTransaction2.commit();
+                }
+                else{
+                    passwordCET.setText("");
+                    passwordCET.setHint("Please make sure both are matching");
+                }
 
-                Intent homeIntent = new Intent(getActivity(),HomeActivity.class);
-                startActivity(homeIntent);
             }
 
         });

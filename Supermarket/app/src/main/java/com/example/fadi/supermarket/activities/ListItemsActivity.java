@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket;
+package com.example.fadi.supermarket.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
-public class ListItems extends AppCompatActivity {
+import com.example.fadi.supermarket.R;
+
+public class ListItemsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +20,6 @@ public class ListItems extends AppCompatActivity {
         setContentView(R.layout.activity_list_items);
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
 
-        
         Intent intent = getIntent();
         String type = intent.getStringExtra("type");
 

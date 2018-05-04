@@ -1,7 +1,9 @@
-package com.example.fadi.supermarket;
+package com.example.fadi.supermarket.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.fadi.supermarket.R;
 
 public class CouponActivity extends AppCompatActivity {
 
