@@ -1,3 +1,22 @@
 <app-header></app-header>
-<app-customers-list></app-customers-list>
-<app-product-list></app-product-list>
+
+<router-outlet></router-outlet>
+
+<!--<app-categories></app-categories>-->
+<!--<app-customers-list></app-customers-list>-->
+<!--<app-product-list></app-product-list>-->
+
+<!--<p-dialog [(visible)]="communicationService.displayErrorDialog"-->
+<p-dialog [visible]="false"
+          [modal]="true"
+          [responsive]="true"
+          [minWidth]="200"
+          [minY]="70">
+  <p-header>
+    Network Error
+  </p-header>
+  <pre>{{communicationService.displayErrorDialogMessage}}</pre>
+  <p-footer>
+    <button class="btn btn-primary" (click)="communicationService.displayErrorDialog = false">Close</button>
+  </p-footer>
+</p-dialog>

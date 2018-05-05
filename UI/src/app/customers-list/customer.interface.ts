@@ -1,6 +1,12 @@
 export interface CustomerInterface {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  'accountNonExpired'?: any;
+  'accountNonLocked'?: any;
+  'authorities'?: any;
+  'credentialsNonExpired'?: any;
+  'email'?: string;
+  'enabled'?: any;
+  'id'?: number;
+  'name'?: string;
+  'password'?: string;
+  'username'?: string;
 }

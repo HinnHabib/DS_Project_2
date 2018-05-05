@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  URL: 'https://localhost:8080/',
-  PATH_URL: ''
+  URL: 'http://18.217.204.27:8080/',
+  PATH_URL: 'api/v1/'
 };

@@ -1,0 +1,87 @@
+<!--<form name="createNewCategory" (ngSubmit)="onSubmit()" #createNewCategory="ngForm">
+
+  <div style="display: block; margin: 20px;box-sizing: border-box;padding: 5px">
+    <mat-form-field>
+      <input matInput placeholder="Category Name" id="name"
+             required
+             ngModel
+             name="name"
+             #name="ngModel">
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <input matInput placeholder="Category Image" id="image"
+             name="image"
+             ngModel
+             required
+             #image="ngModel">
+    </mat-form-field>
+    <div>
+      <button class="btn btn-success" type="submit" [disabled]="!createNewCategory.valid">Add</button>
+      <button class="btn btn-secondary">Reset</button>
+    </div>
+  </div>
+</form>-->
+<div class="categories-container">
+  <p-table [columns]="cols" [value]="categoryList" selectionMode="single" [(selection)]="selectedCat"
+           (onRowSelect)="onRowSelect($event)" [paginator]="false" [rows]="15">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="summary" let-rowData>
+      <div style="text-align:left">
+        <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+      </div>
+    </ng-template>
+
+  </p-table>
+
+  <p-dialog header="Car Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"
+            [width]="300">
+    <div class="ui-g ui-fluid" *ngIf="category">
+      <div class="ui-g-12">
+        <div class="ui-g-4">
+          <label for="vin">ID</label>
+        </div>
+        <div class="ui-g-8">
+          <input pInputText id="vin" [(ngModel)]="category.id" disabled/>
+        </div>
+      </div>
+      <div class="ui-g-12">
+        <div class="ui-g-4">
+          <label for="year">Name</label>
+        </div>
+        <div class="ui-g-8">
+          <input pInputText id="year" [(ngModel)]="category.name" required/>
+        </div>
+      </div>
+      <div class="ui-g-12">
+        <div class="ui-g-4">
+          <label for="brand">Images</label>
+        </div>
+        <div class="ui-g-8">
+          <input pInputText id="brand" [(ngModel)]="category.picture" required/>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+        <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+        <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+      </div>
+    </p-footer>
+  </p-dialog>
+
+</div>

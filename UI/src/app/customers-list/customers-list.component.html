@@ -1,64 +1,96 @@
 <div class="customer-list-container">
 
-  <form name="createNewCustomerForm" (ngSubmit)="onSubmit()" #customerForm="ngForm">
+  <mat-tab-group>
+    <mat-tab label="View All Customer">
+      <form name="createNewCustomerForm" (ngSubmit)="onSubmit()" #customerForm="ngForm">
 
-    <div class="create-new-customer-container">
-      <mat-form-field>
-        <input matInput placeholder="Customer Name" id="name"
-               required
-               ngModel
-               name="name"
-               #name="ngModel">
-      </mat-form-field>
+        <div class="create-new-customer-container">
 
-      <mat-form-field>
-        <input matInput placeholder="Age">
-      </mat-form-field>
-      <div>
-        <button class="btn btn-success">Add</button>
-        <button class="btn btn-secondary">Reset</button>
+          <mat-form-field>
+            <input matInput placeholder="Customer Name" id="name"
+                   required
+                   ngModel
+                   name="name"
+                   #name="ngModel">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="username" id="username"
+                   required
+                   ngModel
+                   name="username"
+                   #username="ngModel">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Email"
+                   required
+                   email
+                   ngModel
+                   id="email"
+                   name="email"
+                   #email="ngModel">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="password"
+                   required
+                   ngModel
+                   type="password"
+                   id="password"
+                   name="password"
+                   #password="ngModel">
+          </mat-form-field>
+          <div>
+            <button class="btn btn-success" type="submit" (click)="onSubmit($event)" [disabled]="!customerForm.valid">
+              Add
+            </button>
+            <button class="btn btn-secondary" type="reset">Reset</button>
+          </div>
+        </div>
+      </form>
+
+      <hr/>
+    </mat-tab>
+    <mat-tab label="Add">
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="userId">
+            <mat-header-cell *matHeaderCellDef> ID</mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.id}}</mat-cell>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.email}}</mat-cell>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="operations">
+            <mat-header-cell *matHeaderCellDef> Delete</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button class="btn btn-danger" (click)="deleteUser(element.id)">Delete</button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+          <mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></mat-row>
+        </mat-table>
       </div>
-    </div>
-  </form>
+    </mat-tab>
+  </mat-tab-group>
 
-  <hr/>
-
-
-  <div class="example-container mat-elevation-z8">
-    <mat-table #table [dataSource]="dataSource">
-
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.position}}</mat-cell>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
-      </ng-container>
-
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <mat-header-cell *matHeaderCellDef> Weight</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.weight}}</mat-cell>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <mat-header-cell *matHeaderCellDef> Delete</mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button class="btn btn-danger">Delete</button>
-        </mat-cell>
-      </ng-container>
-
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-  </div>
 
 </div>
