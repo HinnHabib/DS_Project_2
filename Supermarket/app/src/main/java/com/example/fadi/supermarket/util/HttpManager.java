@@ -1,5 +1,7 @@
 package com.example.fadi.supermarket.util;
 
+import com.example.fadi.supermarket.other.Constants;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -53,16 +55,12 @@ public class HttpManager {
 
         String parameters = jsonObject.toString();
 
-        System.out.println("-------------------------");
-        System.out.println(parameters);
-        System.out.println("-------------------------");
-
         byte[] postData = parameters.getBytes();
 
         int postDataLength = postData.length;
         URL url;
         try {
-            url = new URL("http://distributed.ga:8080/api/v1/user/signIn");
+            url = new URL(Constants.SIGN_IN_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setInstanceFollowRedirects(false);
@@ -101,7 +99,7 @@ public class HttpManager {
         int postDataLength = postData.length;
         URL url;
         try {
-            url = new URL("http://distributed.ga:8080/api/v1/user/signup");
+            url = new URL(Constants.REGISTER_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setInstanceFollowRedirects(false);
