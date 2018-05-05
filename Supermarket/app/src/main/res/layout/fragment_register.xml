@@ -30,28 +30,18 @@
         <EditText
             android:id="@+id/passwordRegister"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
             android:hint="Password"
-             />
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/passwordCRegister"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Confirm Password"
-
-            />
-
-        <CheckBox
-            android:id="@+id/rememberRegister"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_alignLeft="@+id/linearLayout2"
-            android:layout_alignStart="@+id/linearLayout2"
-            android:layout_below="@+id/linearLayout2"
-            android:layout_marginTop="12dp"
-            android:checked="true"
-            android:text="Remember Me" />
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Confim Password"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/finalRegisterButton"

@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         loginChoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (!inLoginPage) {
                     LoginFragment loginFragment = new LoginFragment();
                     FragmentManager fragmentManager2 = getFragmentManager();
