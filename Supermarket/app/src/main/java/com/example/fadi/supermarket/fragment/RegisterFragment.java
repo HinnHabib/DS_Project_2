@@ -48,11 +48,10 @@ public class RegisterFragment extends Fragment implements AsyncResponse {
                 String password = passwordET.getText().toString();
                 String email = emailET.getText().toString();
                 String passwordC = passwordCET.getText().toString();
-                if(passwordC.equals(password)){
+                if (passwordC.equals(password)) {
                     RegisterAsyncTaskRunner registerAsyncTaskRunner = new RegisterAsyncTaskRunner(RegisterFragment.this);
                     registerAsyncTaskRunner.execute(name, email, password);
-                }
-                else{
+                } else {
                     passwordCET.setText("");
                     passwordCET.setHint("Please make sure both are matching");
                 }
@@ -76,9 +75,8 @@ public class RegisterFragment extends Fragment implements AsyncResponse {
             fragmentTransaction2.remove(fragmentManager2.findFragmentByTag("registerFragment"));
             fragmentTransaction2.add(R.id.linearLayout2, loginFragment, "loginFragment");
             fragmentTransaction2.commit();
-        }
-        else {
-
+        } else {
+            // TODO: show error message to user, that register failed
         }
     }
 }

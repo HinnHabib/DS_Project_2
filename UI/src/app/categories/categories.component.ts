@@ -43,6 +43,10 @@ export class CategoriesComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
       });
+    setTimeout(() => {
+      this.categoryService.getAllCategories().subscribe(cars => this.categoryList = cars as Category[]);
+    }, 500);
+
   }
 
   deleteCategory(catId) {

@@ -18,12 +18,16 @@ export class CustomersListComponent implements OnInit {
   columnsToDisplay = ['userId', 'name', 'email', 'operations'];
 
   dataSource: CustomerInterface[] = [];
+  showDialog: boolean;
+  resultsLength: number;
 
   ngOnInit() {
     this.customerService.getAllUsers()
       .subscribe((data: CustomerInterface[]) => {
         console.log(data);
+
         this.dataSource = data;
+        this.resultsLength = data.length;
       });
   }
 
@@ -35,6 +39,16 @@ export class CustomersListComponent implements OnInit {
     newCustomer.email = this.customerForm.value.email;
     newCustomer.password = this.customerForm.value.password;
     this.customerService.addNewCustomer(newCustomer).subscribe();
+    this.customerForm.resetForm();
+    this.showDialog = true;
+    this.dataSource.push(newCustomer);
+    this.resultsLength++;
+
+    // this.customerService.getAllUsers()
+    //   .subscribe((data: CustomerInterface[]) => {
+    //     console.log(data);
+    //     this.dataSource = data;
+    //   });
   }
 
   deleteUser(userId) {
@@ -43,6 +57,12 @@ export class CustomersListComponent implements OnInit {
     this.customerService.deleteUser(userId)
       .subscribe(() => {
       });
+    this.customerService.getAllUsers()
+      .subscribe((data: CustomerInterface[]) => {
+        console.log(data);
+        this.dataSource = data;
+      });
+    this.resultsLength--;
   }
 
 }
