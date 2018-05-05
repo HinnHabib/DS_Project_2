@@ -20,32 +20,17 @@ public class ListItemsActivity extends AppCompatActivity implements AsyncRespons
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_items);
+        setContentView(R.layout.activity_products);
 
         Intent intent = getIntent();
-        String type = intent.getStringExtra("type");
-        this.getData(type);
+        int categoryId = intent.getIntExtra("categoryId", 0);
+        this.getData(categoryId);
     }
 
-    public void getData(String type) {
+    public void getData(int categoryId) {
 
         GetDataAsyncTaskRunner getDataAsyncTaskRunner = new GetDataAsyncTaskRunner(this);
-
-        switch (type) {
-            case "meat":
-                getDataAsyncTaskRunner.execute(Constants.GET_MEAT_PRODUCTS_URL);
-                break;
-            case "bread":
-                getDataAsyncTaskRunner.execute(Constants.GET_BREAD_PRODUCTS_URL);
-                break;
-            case "food":
-                getDataAsyncTaskRunner.execute(Constants.GET_FOOD_PRODUCTS_URL);
-                break;
-            case "nonFood":
-                getDataAsyncTaskRunner.execute(Constants.GET_NON_FOOD_PRODUCTS_URL);
-                break;
-        }
-
+        getDataAsyncTaskRunner.execute(Constants.GET_PRODUCTS_BY_CATEGORY_URL + "/" + categoryId);
     }
 
     @Override

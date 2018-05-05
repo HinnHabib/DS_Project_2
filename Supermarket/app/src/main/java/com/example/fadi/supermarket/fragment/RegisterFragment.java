@@ -15,8 +15,6 @@ import android.widget.EditText;
 import com.example.fadi.supermarket.R;
 import com.example.fadi.supermarket.async.task.AsyncResponse;
 import com.example.fadi.supermarket.async.task.RegisterAsyncTaskRunner;
-import com.example.fadi.supermarket.async.task.SignInAsyncTaskRunner;
-import com.example.fadi.supermarket.model.User;
 
 
 /**

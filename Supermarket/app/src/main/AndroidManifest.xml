@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.CatalogActivity" />
+        <activity android:name=".activity.CategoryActivity" />
         <activity android:name=".activity.CouponActivity" />
         <activity android:name=".activity.HomeActivity" />
         <activity

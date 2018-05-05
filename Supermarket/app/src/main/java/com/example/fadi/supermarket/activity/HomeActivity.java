@@ -28,7 +28,7 @@ public class HomeActivity extends AppCompatActivity {
         catalogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent catalogIntent = new Intent(getApplicationContext(), CatalogActivity.class);
+                Intent catalogIntent = new Intent(getApplicationContext(), CategoryActivity.class);
                 startActivity(catalogIntent);
             }
         });

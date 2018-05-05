@@ -1,21 +1,16 @@
 package com.example.fadi.supermarket.model;
 
-/**
- * Created by Fadi on 5/4/2018.
- */
-
 public class Coupon {
 
-    int id;
-    String name;
-    String description;
+    private int id;
+    private String name;
+    private String description;
 
 
     public Coupon(int id, String name, String description) {
+        this.id = id;
         this.name = name;
         this.description = description;
-        this.id = id;
-
     }
 
     public Coupon() {

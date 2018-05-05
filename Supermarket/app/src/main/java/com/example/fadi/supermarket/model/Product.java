@@ -1,23 +1,18 @@
 package com.example.fadi.supermarket.model;
 
-/**
- * Created by Fadi on 5/4/2018.
- */
-
 import java.util.Date;
-import java.util.List;
 
 public class Product {
 
-    int id;
-    double price;
-    String name;
+    private int id;
+    private double price;
+    private String name;
     private Date added;
     private double sale;
-    private ProductCategory category;
+    private Category category;
     private String image;
 
-    public Product(double price, String name, Date added, double sale, String image, ProductCategory category) {
+    public Product(double price, String name, Date added, double sale, String image, Category category) {
         this.price = price;
         this.name = name;
         this.added = added;
@@ -35,11 +30,11 @@ public class Product {
     }
 
 
-    public ProductCategory getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(ProductCategory category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
@@ -89,13 +84,5 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "price=" + price +
-                ", name='" + name + '\'' +
-                '}';
     }
 }
