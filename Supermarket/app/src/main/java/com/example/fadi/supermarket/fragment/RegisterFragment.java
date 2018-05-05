@@ -13,13 +13,16 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.fadi.supermarket.R;
+import com.example.fadi.supermarket.async.task.AsyncResponse;
+import com.example.fadi.supermarket.async.task.RegisterAsyncTaskRunner;
+import com.example.fadi.supermarket.async.task.SignInAsyncTaskRunner;
 import com.example.fadi.supermarket.model.User;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RegisterFragment extends Fragment {
+public class RegisterFragment extends Fragment implements AsyncResponse {
 
 
     public RegisterFragment() {
@@ -46,13 +49,8 @@ public class RegisterFragment extends Fragment {
                 String email = emailET.getText().toString();
                 String passwordC = passwordCET.getText().toString();
                 if(passwordC.equals(password)){
-                    User userRegister = new User(name, password, email);
-                    LoginFragment loginFragment = new LoginFragment();
-                    FragmentManager fragmentManager2 = getFragmentManager();
-                    FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
-                    fragmentTransaction2.remove(fragmentManager2.findFragmentByTag("registerFragment"));
-                    fragmentTransaction2.add(R.id.linearLayout2, loginFragment, "loginFragment");
-                    fragmentTransaction2.commit();
+                    RegisterAsyncTaskRunner registerAsyncTaskRunner = new RegisterAsyncTaskRunner(RegisterFragment.this);
+                    registerAsyncTaskRunner.execute(name, email, password);
                 }
                 else{
                     passwordCET.setText("");
@@ -66,4 +64,21 @@ public class RegisterFragment extends Fragment {
         return myView;
     }
 
+    @Override
+    public void processData(Object data) {
+
+        Boolean successfullyRegistered = (Boolean) data;
+
+        if (successfullyRegistered) {
+            LoginFragment loginFragment = new LoginFragment();
+            FragmentManager fragmentManager2 = getFragmentManager();
+            FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
+            fragmentTransaction2.remove(fragmentManager2.findFragmentByTag("registerFragment"));
+            fragmentTransaction2.add(R.id.linearLayout2, loginFragment, "loginFragment");
+            fragmentTransaction2.commit();
+        }
+        else {
+
+        }
+    }
 }

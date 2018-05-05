@@ -8,11 +8,11 @@ import com.example.fadi.supermarket.util.HttpManager;
  * Created by Mohammad on 7/30/2017.
  */
 
-public class AsyncTaskRunner extends AsyncTask<String, String, String> {
+public class RegisterAsyncTaskRunner extends AsyncTask<String, String, Boolean> {
 
     private AsyncResponse asyncResponse;
 
-    public AsyncTaskRunner(AsyncResponse asyncResponse) {
+    public RegisterAsyncTaskRunner(AsyncResponse asyncResponse) {
         this.asyncResponse = asyncResponse;
     }
 
@@ -22,13 +22,13 @@ public class AsyncTaskRunner extends AsyncTask<String, String, String> {
     }
 
     @Override
-    protected String doInBackground(String... params) {
+    protected Boolean doInBackground(String... params) {
 
-        return HttpManager.getData(params[0]);
+        return HttpManager.register(params[0], params[1], params[2]);
     }
 
     @Override
-    protected void onPostExecute(String result) {
+    protected void onPostExecute(Boolean result) {
         super.onPostExecute(result);
         asyncResponse.processData(result);
     }

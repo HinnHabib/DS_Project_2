@@ -9,7 +9,7 @@ import com.example.fadi.supermarket.R;
 import com.example.fadi.supermarket.adapter.ProductAdapter;
 import com.example.fadi.supermarket.model.Product;
 import com.example.fadi.supermarket.async.task.AsyncResponse;
-import com.example.fadi.supermarket.async.task.AsyncTaskRunner;
+import com.example.fadi.supermarket.async.task.GetDataAsyncTaskRunner;
 import com.example.fadi.supermarket.other.Constants;
 import com.example.fadi.supermarket.util.JsonParser;
 
@@ -29,26 +29,29 @@ public class ListItemsActivity extends AppCompatActivity implements AsyncRespons
 
     public void getData(String type) {
 
-        AsyncTaskRunner asyncTaskRunner = new AsyncTaskRunner(this);
+        GetDataAsyncTaskRunner getDataAsyncTaskRunner = new GetDataAsyncTaskRunner(this);
 
         switch (type) {
             case "meat":
-                asyncTaskRunner.execute(Constants.GET_MEAT_PRODUCTS_URL);
+                getDataAsyncTaskRunner.execute(Constants.GET_MEAT_PRODUCTS_URL);
                 break;
             case "bread":
-                asyncTaskRunner.execute(Constants.GET_BREAD_PRODUCTS_URL);
+                getDataAsyncTaskRunner.execute(Constants.GET_BREAD_PRODUCTS_URL);
                 break;
             case "food":
-                asyncTaskRunner.execute(Constants.GET_FOOD_PRODUCTS_URL);
+                getDataAsyncTaskRunner.execute(Constants.GET_FOOD_PRODUCTS_URL);
                 break;
             case "nonFood":
-                asyncTaskRunner.execute(Constants.GET_NON_FOOD_PRODUCTS_URL);
+                getDataAsyncTaskRunner.execute(Constants.GET_NON_FOOD_PRODUCTS_URL);
                 break;
         }
 
     }
 
-    public void processData(String jsonString) {
+    @Override
+    public void processData(Object data) {
+
+        String jsonString = (String) data;
 
         ArrayList<Product> products = JsonParser.parseProductsJson(jsonString);
 

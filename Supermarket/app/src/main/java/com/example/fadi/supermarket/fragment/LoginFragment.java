@@ -12,12 +12,15 @@ import android.widget.EditText;
 
 import com.example.fadi.supermarket.R;
 import com.example.fadi.supermarket.activity.HomeActivity;
+import com.example.fadi.supermarket.async.task.AsyncResponse;
+import com.example.fadi.supermarket.async.task.SignInAsyncTaskRunner;
+import com.example.fadi.supermarket.util.HttpManager;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment implements AsyncResponse {
 
 
     public LoginFragment() {
@@ -31,24 +34,35 @@ public class LoginFragment extends Fragment {
         View myView = inflater.inflate(R.layout.fragment_login, container, false);
 
         Button loginButton = (Button) myView.findViewById(R.id.finalLoginButton);
-        final EditText nameET = (EditText) myView.findViewById(R.id.nameLogin);
+        final EditText emailET = (EditText) myView.findViewById(R.id.nameLogin);
         final EditText passwordET = (EditText) myView.findViewById(R.id.passwordLogin);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = nameET.getText().toString();
+                String email = emailET.getText().toString();
                 String password = passwordET.getText().toString();
 
-                Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
-                startActivity(homeIntent);
-
+                SignInAsyncTaskRunner signInAsyncTaskRunner = new SignInAsyncTaskRunner(LoginFragment.this);
+                signInAsyncTaskRunner.execute(email, password);
             }
-
         });
+
         return myView;
         // Inflate the layout for this fragment
     }
 
+    @Override
+    public void processData(Object data) {
 
+        Boolean successfullyLoggedIn = (Boolean) data;
+
+        if (successfullyLoggedIn) {
+            Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
+            startActivity(homeIntent);
+        }
+        else {
+
+        }
+    }
 }
