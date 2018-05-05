@@ -2,7 +2,7 @@
 
   <mat-tab-group>
     <mat-tab label="View All Customer">
-      <form name="createNewCustomerForm" (ngSubmit)="onSubmit()" #customerForm="ngForm">
+      <form name="createNewCustomerForm" (ngSubmit)="onSubmit($event)" #customerForm="ngForm">
 
         <div class="create-new-customer-container">
 
@@ -88,9 +88,18 @@
           <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
           <mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></mat-row>
         </mat-table>
+        <mat-paginator [length]="resultsLength" [pageSize]="30">
+        </mat-paginator>
       </div>
     </mat-tab>
   </mat-tab-group>
 
+
+  <p-dialog [(visible)]="showDialog" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200" [minY]="70">
+    Customer Added Successfully
+    <p-footer>
+      <button type="button" pButton icon="fa-close" (click)="showDialog=false" label="Close"></button>
+    </p-footer>
+  </p-dialog>
 
 </div>

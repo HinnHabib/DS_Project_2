@@ -2,9 +2,12 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
+
+
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import {DialogModule} from 'primeng/Dialog';
 import {TableModule} from 'primeng/table';
@@ -13,6 +16,8 @@ import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
 import {DataGridModule} from 'primeng/datagrid';
 import {PanelModule} from 'primeng/panel';
+import {DataViewModule} from 'primeng/dataview';
+import {DropdownModule} from 'primeng/dropdown';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -27,6 +32,7 @@ import {CategoriesComponent} from './categories/categories.component';
 import {CategoryService} from './categories/category.service';
 import {HomePageComponent} from './home-page/home-page.component';
 import {CouponsComponent} from './coupons/coupons.component';
+import {ProductService} from './product-list/product.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -65,9 +71,12 @@ const appRoutes: Routes = [
     MatTabsModule,
     DataGridModule,
     PanelModule,
+    DataViewModule,
+    DropdownModule,
+    MatPaginatorModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [CommunicationService, CustomersListService, CategoryService],
+  providers: [CommunicationService, CustomersListService, CategoryService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

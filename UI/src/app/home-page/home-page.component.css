@@ -77,5 +77,8 @@
 .back {
   transform: rotateY(180deg);
   background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 

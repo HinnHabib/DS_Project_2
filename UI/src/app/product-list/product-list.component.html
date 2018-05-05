@@ -1,42 +1,86 @@
 <div style="padding: 10px 20px; box-sizing: border-box;">
-  <p-dataGrid [value]="cars" [paginator]="true" [rows]="20">
+  <p-dataView #dv [value]="products" [paginator]="true" [rows]="12" paginatorPosition="both" filterBy="name"
+              [sortField]="sortField" [sortOrder]="sortOrder" [loading]="loading">
     <p-header>
-      List of Products
+      <div class="ui-helper-clearfix">
+        <div class="ui-g">
+          <div class="ui-g-12 ui-md-4">
+            <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By"
+                        (onChange)="onSortChange($event)" [autoWidth]="false"
+                        [style]="{'min-width':'15em'}"></p-dropdown>
+          </div>
+          <div class="ui-g-6 ui-md-4 filter-container">
+            <div style="position:relative">
+              <input type="search" pInputText placeholder="Search by name" (keyup)="dv.filter($event.target.value)">
+            </div>
+          </div>
+          <div class="ui-g-6 ui-md-4" style="text-align:right">
+            <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+          </div>
+        </div>
+      </div>
     </p-header>
-    <ng-template let-car pTemplate="item">
+    <ng-template let-product pTemplate="listItem">
+      <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+        <div class="ui-g-12 ui-md-3" style="text-align:center">
+          <img src="./assets/bread.jpeg" width="250">
+        </div>
+        <div class="ui-g-12 ui-md-8 car-details">
+          <div class="ui-g">
+            <div class="ui-g-2 ui-sm-6">Name:</div>
+            <div class="ui-g-10 ui-sm-6"><b>{{product.name}}</b></div>
+
+            <div class="ui-g-2 ui-sm-6">Price:</div>
+            <div class="ui-g-10 ui-sm-6"><b>{{product.price |currency}}</b></div>
+
+            <div class="ui-g-2 ui-sm-6">Category:</div>
+            <div class="ui-g-10 ui-sm-6"><b>{{product.foodCategory.name}}</b></div>
+
+            <div class="ui-g-2 ui-sm-6">Sale:</div>
+            <div class="ui-g-10 ui-sm-6"><b>{{product.sale}}</b></div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-md-1 search-icon">
+          <button pButton type="button" icon="fa-search" (click)="selectProduct($event, product)"></button>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template let-product pTemplate="gridItem">
       <div style="padding:3px" class="ui-g-12 ui-md-3">
-        <p-panel [header]="car.vin" [style]="{'text-align':'center'}">
-          <!--<img src="assets/showcase/images/demo/car/{{car.brand}}.png" width="60">-->
-          <div class="car-detail">{{car.year}} - {{car.color}}</div>
+        <p-panel [header]="product.id" [style]="{'text-align':'center'}">
+          <img src="./assets/bread.jpeg" width="150">
+          <div>Name: {{product.name}}</div>
+          <div>Price: {{product.price |currency}}</div>
+          <div>Category: {{product.foodCategory.name}}</div>
+          <div *ngIf="product.sale"> 0">Sale: {{product.sale}}</div>
           <hr class="ui-widget-content" style="border-top:0">
-          <i class="fa fa-search" (click)="selectCar(car)" style="cursor:pointer"></i>
+          <i class="fa fa-search" (click)="selectProduct($event, product)" style="cursor:pointer"></i>
         </p-panel>
       </div>
     </ng-template>
-  </p-dataGrid>
+  </p-dataView>
 
-  <p-dialog header="Car Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"
-            width="225" (onAfterHide)="onDialogHide()">
-    <div class="ui-grid ui-grid-responsive ui-grid-pad" *ngIf="selectedCar"
-         style="font-size:16px;text-align:center;padding:20px">
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-4">Vin:</div>
-        <div class="ui-grid-col-8">{{selectedCar.vin}}</div>
+  <p-dialog header="Product Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"
+            width="400" (onAfterHide)="onDialogHide()">
+    <div class="ui-g" style="justify-content: center" *ngIf="selectedProduct">
+      <div class="ui-g-12" style="text-align:center">
+        <img src="./assets/bread.jpeg">
       </div>
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-4">Year:</div>
-        <div class="ui-grid-col-8">{{selectedCar.year}}</div>
-      </div>
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-4">Brand:</div>
-        <div class="ui-grid-col-8">{{selectedCar.brand}}</div>
-      </div>
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-4">Color:</div>
-        <div class="ui-grid-col-8">{{selectedCar.color}}</div>
-      </div>
+      <div class="ui-g-4">Name:</div>
+      <div class="ui-g-8">{{selectedProduct.name}}</div>
+
+      <div class="ui-g-4">Price:</div>
+      <div class="ui-g-8">{{selectedProduct.price |currency}}</div>
+
+      <div class="ui-g-4">Category:</div>
+      <div class="ui-g-8">{{selectedProduct.foodCategory.name}}</div>
+
+      <div class="ui-g-4">Sale:</div>
+      <div class="ui-g-8">{{selectedProduct.sale}}</div>
+
+      <div class="ui-g-4">Added Date:</div>
+      <div class="ui-g-8">{{selectedProduct.added}}</div>
     </div>
   </p-dialog>
-
 </div>
 
