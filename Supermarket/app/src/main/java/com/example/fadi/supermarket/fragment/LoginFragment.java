@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket.fragments;
+package com.example.fadi.supermarket.fragment;
 
 
 import android.app.Fragment;
@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.fadi.supermarket.R;
-import com.example.fadi.supermarket.activities.HomeActivity;
+import com.example.fadi.supermarket.activity.HomeActivity;
 
 
 /**

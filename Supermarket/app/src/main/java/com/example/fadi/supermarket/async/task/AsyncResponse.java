@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket.utils;
+package com.example.fadi.supermarket.async.task;
 
 public interface AsyncResponse {
 

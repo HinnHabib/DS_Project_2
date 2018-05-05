@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context="com.example.fadi.supermarket.activities.MainActivity">
+    tools:context="com.example.fadi.supermarket.activity.MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"

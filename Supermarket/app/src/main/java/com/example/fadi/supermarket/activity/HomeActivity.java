@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket.activities;
+package com.example.fadi.supermarket.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

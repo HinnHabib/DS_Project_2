@@ -1,6 +1,8 @@
-package com.example.fadi.supermarket.utils;
+package com.example.fadi.supermarket.async.task;
 
 import android.os.AsyncTask;
+
+import com.example.fadi.supermarket.util.HttpManager;
 
 /**
  * Created by Mohammad on 7/30/2017.

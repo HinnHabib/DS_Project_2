@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket.utils;
+package com.example.fadi.supermarket.util;
 
 import com.example.fadi.supermarket.model.Product;
 
@@ -7,7 +7,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class JsonParser {
 

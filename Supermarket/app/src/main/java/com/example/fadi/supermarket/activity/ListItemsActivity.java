@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket.activities;
+package com.example.fadi.supermarket.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,12 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.example.fadi.supermarket.R;
-import com.example.fadi.supermarket.model.ProductAdapter;
+import com.example.fadi.supermarket.adapter.ProductAdapter;
 import com.example.fadi.supermarket.model.Product;
-import com.example.fadi.supermarket.utils.AsyncResponse;
-import com.example.fadi.supermarket.utils.AsyncTaskRunner;
-import com.example.fadi.supermarket.utils.Constants;
-import com.example.fadi.supermarket.utils.JsonParser;
+import com.example.fadi.supermarket.async.task.AsyncResponse;
+import com.example.fadi.supermarket.async.task.AsyncTaskRunner;
+import com.example.fadi.supermarket.other.Constants;
+import com.example.fadi.supermarket.util.JsonParser;
 
 import java.util.ArrayList;
 

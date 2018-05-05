@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.fadi.supermarket.activities.MainActivity">
+    tools:context="com.example.fadi.supermarket.activity.MainActivity">
 
     <ListView
         android:id="@+id/products_list"

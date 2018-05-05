@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket.utils;
+package com.example.fadi.supermarket.util;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

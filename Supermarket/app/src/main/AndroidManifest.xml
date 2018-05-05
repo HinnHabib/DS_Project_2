@@ -12,18 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.CatalogActivity" />
-        <activity android:name=".activities.CouponActivity" />
-        <activity android:name=".activities.HomeActivity" />
+        <activity android:name=".activity.CatalogActivity" />
+        <activity android:name=".activity.CouponActivity" />
+        <activity android:name=".activity.HomeActivity" />
         <activity
-            android:name=".activities.ListItemsActivity"
+            android:name=".activity.ListItemsActivity"
             android:label="@string/title_activity_list_items"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

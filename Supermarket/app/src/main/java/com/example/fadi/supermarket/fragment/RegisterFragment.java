@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket.fragments;
+package com.example.fadi.supermarket.fragment;
 
 
 import android.app.Fragment;

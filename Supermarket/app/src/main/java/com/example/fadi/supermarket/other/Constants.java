@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket.utils;
+package com.example.fadi.supermarket.other;
 
 public class Constants {
 

@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket.model;
+package com.example.fadi.supermarket.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fadi.supermarket.R;
+import com.example.fadi.supermarket.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.fadi.supermarket.activities;
+package com.example.fadi.supermarket.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.fadi.supermarket.fragments.LoginFragment;
+import com.example.fadi.supermarket.fragment.LoginFragment;
 import com.example.fadi.supermarket.R;
-import com.example.fadi.supermarket.fragments.RegisterFragment;
+import com.example.fadi.supermarket.fragment.RegisterFragment;
 
 public class MainActivity extends AppCompatActivity {
 
