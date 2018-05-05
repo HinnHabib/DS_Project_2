@@ -13,12 +13,13 @@ import com.example.fadi.supermarket.fragment.RegisterFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    private boolean inLoginPage = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         LoginFragment loginFragment = new LoginFragment();
-        RegisterFragment registerFragment = new RegisterFragment();
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -35,26 +36,30 @@ public class MainActivity extends AppCompatActivity {
         loginChoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                LoginFragment loginFragment = new LoginFragment();
-                FragmentManager fragmentManager2 = getFragmentManager();
-                FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
-                fragmentTransaction2.remove(fragmentManager2.findFragmentByTag("registerFragment"));
-                fragmentTransaction2.add(R.id.linearLayout2, loginFragment, "loginFragment");
-                fragmentTransaction2.commit();
-
+                if (!inLoginPage) {
+                    LoginFragment loginFragment = new LoginFragment();
+                    FragmentManager fragmentManager2 = getFragmentManager();
+                    FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
+                    fragmentTransaction2.remove(fragmentManager2.findFragmentByTag("registerFragment"));
+                    fragmentTransaction2.add(R.id.linearLayout2, loginFragment, "loginFragment");
+                    fragmentTransaction2.commit();
+                    inLoginPage = true;
+                }
             }
         });
 
         registerChoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RegisterFragment registerFragment = new RegisterFragment();
-                FragmentManager fragmentManager2 = getFragmentManager();
-                FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
-                fragmentTransaction2.remove(fragmentManager2.findFragmentByTag("loginFragment"));
-                fragmentTransaction2.add(R.id.linearLayout2, registerFragment, "registerFragment");
-                fragmentTransaction2.commit();
+                if (inLoginPage) {
+                    RegisterFragment registerFragment = new RegisterFragment();
+                    FragmentManager fragmentManager2 = getFragmentManager();
+                    FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
+                    fragmentTransaction2.remove(fragmentManager2.findFragmentByTag("loginFragment"));
+                    fragmentTransaction2.add(R.id.linearLayout2, registerFragment, "registerFragment");
+                    fragmentTransaction2.commit();
+                    inLoginPage = false;
+                }
             }
         });
 
