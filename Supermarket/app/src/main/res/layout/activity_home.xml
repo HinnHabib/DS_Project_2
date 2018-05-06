@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="128dp"
             android:layout_weight="1"
-            android:background="@drawable/aboutUs"
+            android:background="@drawable/about_us"
             android:text="About Us" />
 
         <ImageView
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="128dp"
             android:layout_weight="1"
-            android:background="@drawable/newArr"
+            android:background="@drawable/new_arrivals"
 
             android:text="New Arrivals" />
 
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="128dp"
             android:layout_weight="0.23"
-            android:background="@drawable/bestOff"
+            android:background="@drawable/best_offers"
 
             android:text="Best Offers" />
     </LinearLayout>

@@ -13,6 +13,11 @@ public class JsonParser {
 
     public static ArrayList<Product> parseProductsJson(String json) {
         ArrayList<Product> products = new ArrayList<>();
+
+        if (json == null) {
+            return products;
+        }
+
         try {
             JSONArray jsonArray = new JSONArray(json);
 
